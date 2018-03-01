@@ -3,11 +3,11 @@ import React from 'react';
 import styles from './Footer.scss';
 import Link from '../Link';
 
-export default function Footer({showCFP, filters, addConferenceUrl, togglePast, showPast}) {
+export default function Footer({showCFP, filters, togglePast, showPast}) {
   return (
     <footer className={styles.Footer}>
       <p className={styles.FooterLinks}>
-        <Link url={addConferenceUrl} external>
+        <Link url="/new" routed>
           Add a conference
         </Link>
         <Link selected={showPast} onClick={togglePast}>

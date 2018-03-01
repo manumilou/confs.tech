@@ -16,7 +16,6 @@ import {
   TYPES,
   CURRENT_YEAR,
   getConferenceUrl,
-  getAddConferenceUrl,
 } from '../config';
 
 export default class ConferencePage extends Component {
@@ -131,7 +130,6 @@ export default class ConferencePage extends Component {
     const {showCFP} = this.props;
     const conferencesFilteredByDate = filterConferencesByDate(conferences, showPast);
     const filteredConferences = this.filterConferences(conferencesFilteredByDate);
-    const addConferenceUrl = getAddConferenceUrl(type);
 
     // Fallback is only defined for `/:type/:country` paths.
     // Avoids displaying an error when looking for a country with no conf for `type` yet.
@@ -170,7 +168,6 @@ export default class ConferencePage extends Component {
             : <ConferenceList
               sortBy={sortBy}
               showCFP={showCFP}
-              addConferenceUrl={addConferenceUrl}
               conferences={filteredConferences}
               />
           }
@@ -178,7 +175,6 @@ export default class ConferencePage extends Component {
         <Footer
           showCFP={showCFP}
           filters={filters}
-          addConferenceUrl={addConferenceUrl}
           togglePast={this.togglePast}
           showPast={showPast}
         />

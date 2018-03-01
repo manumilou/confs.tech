@@ -29,7 +29,7 @@ export default class ConferenceList extends Component {
   };
 
   render() {
-    const {conferences, showCFP, sortBy, addConferenceUrl} = this.props;
+    const {conferences, showCFP, sortBy} = this.props;
     let filteredConferences = conferences;
     if (showCFP) {
       filteredConferences = filter(conferences, (conf) => {
@@ -45,7 +45,7 @@ export default class ConferenceList extends Component {
     const confsTable = Object.keys(confs).map((year) => {
       return [
         <Divider key="hr" />,
-        <Year key={year} year={year} addConferenceUrl={addConferenceUrl} />,
+        <Year key={year} year={year} />,
         this.renderConferences(confs[year]),
       ];
     });
@@ -96,13 +96,13 @@ function Months({month, conferences, showCFP}) {
   ];
 }
 
-function Year({year, addConferenceUrl}) {
+function Year({year}) {
   return (
     <div className={styles.Year}>
       <Heading key={year} element="h2" level={2}>
         {year}
       </Heading>
-      <AddConferenceLink url={addConferenceUrl} />
+      <AddConferenceLink />
     </div>
   );
 }
@@ -113,26 +113,12 @@ function getConfsMonthsSorted(conferences) {
   });
 }
 
-function AddConferenceLink({url}) {
+function AddConferenceLink() {
   return (
     <div className={styles.AddConfPanelWrapper}>
-      <Link url={url} external>
+      <Link url="/new" routed>
         Add a conference
       </Link>
-      <div className={styles.AddConfPanel}>
-        <ul>
-          <li>
-            <Link url={url} external>
-              Create a github issue
-            </Link>
-          </li>
-          <li>
-            <Link url="mailto:nim.izadi+confs.tech@gmail.com?subject=Here's a cool conference!" external>
-              Send us an email
-            </Link>
-          </li>
-        </ul>
-      </div>
     </div>
   );
 }

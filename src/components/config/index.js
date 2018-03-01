@@ -13,17 +13,6 @@ export const TYPES = {
 
 const DEFAULT_URL = 'https://raw.githubusercontent.com/tech-conferences/confs.tech/master/conferences';
 
-const REPO_URLS = {
-  javascript: 'https://github.com/tech-conferences/javascript-conferences',
-  css: 'https://github.com/tech-conferences/confs.tech',
-  php: 'https://github.com/tech-conferences/confs.tech',
-  ux: 'https://github.com/tech-conferences/confs.tech',
-  ruby: 'https://github.com/tech-conferences/confs.tech',
-  ios: 'https://github.com/tech-conferences/confs.tech',
-  android: 'https://github.com/tech-conferences/confs.tech',
-  general: 'https://github.com/tech-conferences/confs.tech',
-};
-
 const RAW_CONTENT_URLS = {
   javascript: 'https://raw.githubusercontent.com/tech-conferences/javascript-conferences/master/conferences',
   css: DEFAULT_URL,
@@ -40,8 +29,4 @@ export function getConferenceUrl(state) {
   const _type = type.toLocaleLowerCase();
 
   return `${RAW_CONTENT_URLS[_type]}/${year}/${_type}.json`;
-}
-
-export function getAddConferenceUrl(type) {
-  return `${REPO_URLS[type.toLocaleLowerCase()]}/issues/new`;
 }
