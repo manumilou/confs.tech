@@ -189,5 +189,14 @@
     "city": "Brighton",
     "country": "U.K.",
     "twitter": "@brightonruby"
+  },
+  {
+    "name": "Ruby On Ice",
+    "url": "http://rubyonice.com",
+    "startDate": "2018-01-26",
+    "endDate": "2018-01-28",
+    "city": "Tegernsee",
+    "country": "Germany",
+    "twitter": "@rubyoniceconf"
   }
 ]
